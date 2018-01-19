@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>09 - Game Rightprice</title>
+  </head>
+  <body>
+
+    <script>
+
+      // We create an object to store the different value
+      let gameVariable = {
+        minVal: 20,
+        maxVal: 80,
+        victory: false,
+        text: '* Welcome in our "RigthPrice" game *.\n\nTry to find the secret price between ' + this.minVal + ' and ' + this.maxVal + '.\nYou could stop the game whenever you want, simply enter "exit".',
+        attemptCount: 1,
+        continueToPlay:true,
+      };
+
+      // function to generate a random number between minVal and maxVal
+      let randomly = function() {
+        return Math.round( Math.random() * (gameVariable.maxVal - gameVariable.minVal) ) + gameVariable.minVal;
+      }
+
+      // function to test the user answer
+      let testUserInput = function (input, number) {
+
+        if(userInput === null) { // if the user send an empty answer
+          gameVariable.text = 'Please enter a number. Empty submission is forbidden'; // we change the text into the object
+        } else if (userInput.toLowerCase() === 'exit') { // if the user want to stop the game
+          gameVariable.text = 'Hope to see you soon.'; // we change the text into the object
+          gameVariable.continueToPlay = false; // we change the value so the loop could stop
+        } else if(isNaN(userInput) || userInput < gameVariable.minVal || userInput > gameVariable.maxVal) { // if the user enters text or a number outside authorized value
+          gameVariable.text = '✗ Please enter only positive number between ' + gameVariable.minVal + ' and ' + gameVariable.maxVal + '.';  // we change the text into the object
+        } else if ( userInput > randomNumber) { // if the user enter a number larger than the secret number
+          gameVariable.text = '✗ Your number is too large.';  // we change the text into the object
+          gameVariable.attemptCount++; // we increment the attempt counter
+        } else if ( userInput < randomNumber) { // if the user enter a number smaller than the secret number
+          gameVariable.text = '✗ Your number is too small.';  // we change the text into the object
+          gameVariable.attemptCount++; // we increment the attempt counter
+        } else { // if everything else is false, the user has won.
+          gameVariable.victory = true; // we change the value so the loop could stop
+          if (gameVariable.attemptCount === 1) { // if we won at his first attempt
+            gameVariable.text = '✓ Congrats! You won at your first try!';  // we change the text into the object
+          } else { // if we won with more than one attempt
+            gameVariable.text = '✓ Congrats! You won in ' + gameVariable.attemptCount + ' attempts.';  // we change the text into the object
+          }
+        }
+
+      }
+
+      let randomNumber = randomly(); // we store the random number
+      // console.log(randomNumber); // we write in the console the random number for the test
+
+      alert(gameVariable.text); // we display the welcome text store by default in the object
+
+      while(!gameVariable.victory && gameVariable.continueToPlay) { // if the user didn't find yet or if the user will continue to play
+
+        userInput = prompt('Enter a number between ' + gameVariable.minVal + ' and ' + gameVariable.maxVal + '.'); // we request a number to the user
+        testUserInput(userInput,randomNumber); // we test the number of the user
+        alert(gameVariable.text); // we display the answer
+
+      }
+      // we ask if he want to play again except if the user quittes the game with the exit command
+      if(gameVariable.continueToPlay === true) {
+        if(confirm('Do you want play again?')) {
+          location.reload();
+        }
+      }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>07 - Math</title>
+  </head>
+  <body>
+
+    <script>
+      /* To access to math object */
+      //console.dir(Math);
+
+      // Exercice 1: min and max
+      let array1 = [7, 5, -12, 6, 32, 18, 14, -2];
+      let array2 = [ -3, 9, 21, 36, 27, 54, 17, 35];
+
+      console.log(Math.min(...array1));
+      console.log(Math.max(...array2));
+      console.log(Math.min(...array1) + Math.max(...array2));
+
+      console.log('----------'); // cosmetics
+
+      // Exercice 2: Round
+      let floatBateau = 10.4;
+      let couleBateau = Math.floor(floatBateau);
+      let voleBateau = Math.ceil(floatBateau);
+
+      console.log(floatBateau,couleBateau,voleBateau)
+
+      console.log('----------'); // cosmetics
+
+      // Exercice 3: Random I
+      let random1 = Math.random() * 50 + 50; // we calculate a nomber between 0 and 50 and we add 50 to be between 50 and 100
+      let random2 = Math.round(Math.random());
+      let random3 = Math.round(Math.random() * 10);
+
+      console.log(random1,random2,random3)
+      console.log('----------'); // cosmetics
+
+      // Excerice 4: Random II
+
+      // long version
+      let mortalKombat = ['Goro', 'Johnny Cago', 'Kano', 'Liu Kano', 'Raiden', 'Reptil', 'Scorpion', 'Shang Tsun', 'Sonya', 'Sub-Zero'];
+      let index = Math.random() * mortalKombat.length;
+      let floorIndex = Math.floor(index);
+      console.log(mortalKombat[floorIndex]);
+
+      // short version
+      console.log('----------'); // cosmetics
+      console.log(mortalKombat[Math.floor(Math.random() * mortalKombat.length)]);
+
+
+    </script>
+
+
+  </body>
+</html>

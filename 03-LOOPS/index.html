@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>03 - Loops</title>
+  </head>
+  <body>
+
+    <script>
+
+      // exercice 1
+      for(let nb = 0; nb <= 20; nb++) {
+        if (nb%2) { // return 1 if it is odd and 1 == true
+          console.log(nb + ' is odd');
+        } else { // return 0 ig it is even and 0 == false
+          console.log(nb + ' is even');
+        }
+      }
+
+      console.log('----------'); // cosmetics
+
+      // exercice 2
+      for (let nb = 0; nb <= 10; nb++) {
+        // for each loop we display the nb and we concatenate it to the final result
+        console.log(nb + ' * 9 = ' + (nb*9));
+      }
+
+      console.log('----------'); // cosmetics
+
+      // exercice 3
+      // we could declare more than a variable in the initialisation part of a "for" loop
+      for (let rank, score = 0; score <= 100; score++) {
+
+        // Notice: There is only one intruction after the condition so the {} is not necessary
+
+        if (score < 65) // if score is smallee than 65
+          rank = 'F';
+        else if (score < 70) // if score is higher than 65 and samller than 70
+          rank='D';
+        else if  (score < 80) // if score is higher than 70 and samller than 80
+          rank='C';
+        else if (score < 90) // if score is higher than 80 and samller than 90
+          rank='B';
+        else // if score is higher or = than 90
+          rank='A';
+
+        // we concatenate the score and the rank inside the text
+        console.log('With ' + score + ' points, your ranking is ' + rank);
+
+      }
+
+      console.log('----------'); // cosmetics
+
+      // exercice 4
+      let floor = 6; // numner of floor to your christmas tree
+      for (let i = 1 , text ; i < floor ; i++) { // we run the first loop
+        space = ' '; // the space variable to center the text
+        text = space.repeat(floor - i); // we calculta how many spaces we need to center the text
+        for(let star = 1; star <= i; star++) { // we display the number of stars we need
+          text += '*';
+        }
+        if(i > 1) { // except of the first line we must create the "mirror effect"
+          for(let star = 1; star <= (i - 1); star++) {
+            text += '*';
+          }
+        }
+        console.log(text); // we display the result
+      }
+
+
+
+    </script>
+
+
+  </body>
+</html>

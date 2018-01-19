@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>13 - Keyboard Event</title>
+    <style>
+      html, body {
+        width:100%;
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .highlight {
+        opacity: .5;
+        background: lightblue;
+      }
+      .zoomIn {
+        position: absolute;
+        top:0;
+        left:0;
+        display:flex;
+        width:100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      .zoomIn .text {
+        color:rgba(0,0,0,0);
+        position: absolute;
+        font-weight: bold;
+        text-transform: uppercase;
+        animation: zoomIn 1s ease-out;
+        animation-iteration-count:1;
+      }
+
+      @keyframes zoomIn {
+        0% {
+          color:rgba(0,0,0,0);
+          transform: scale(0.1, 0.1);
+          opacity: 0;
+        }
+        5% {
+          color:rgba(0,0,0,1);
+        }
+        50% {
+            opacity: 1;
+        }
+        95% {
+          color:rgba(0,0,0,1);
+        }
+        100% {
+          color:rgba(0,0,0,0);
+          transform: scale(15,15);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="character">div#character</div>
+    <hr>
+    <div id="up">Up</div>
+    <div id="down">Down</div>
+    <div id="left">Left</div>
+    <div id="right">Right</div>
+    <hr>
+    <div class="zoomIn"></div>
+
+
+    <script src="main.js"></script>
+
+  </body>
+</html>

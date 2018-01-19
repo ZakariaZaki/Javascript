@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>05 - Array</title>
+  </head>
+  <body>
+
+    <script>
+
+      // Exercice 1
+      let number = [1,2,3,4,5,6,7,8,9];
+      let addition = 0;
+
+      number.forEach(function (item) {
+        // we loop the array thanks to the dedicated JS function
+        // More info https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+        addition += item; // addition = addition + item;
+      });
+
+      console.log(addition); // we display the result
+
+      console.log('----------'); // cosmetics
+
+      // Exercice 2
+      let actor = ['Mélanie Laurent', 'Marion Cotillard', 'Cécile de France']; // array with the actors
+      let position = ['first', 'second', 'third']; // array with the position
+      let text = textBonus = '';
+      // we can declare the two variables on the same line instead of writing:
+      // let text = '';
+      // let text2 = '';
+
+      actor.forEach(function (item, index) { // we loop the actors array
+        // item is the value of the current position
+        // index is the position of the current value
+        // Notice: If use the shortcut to write : text += text + 'Number ' + (index + 1) + ' is ' + item + '\n';
+        text += 'Number ' + (index + 1) + ' is ' + item + '\n'; // we concatenate the result inside the text
+        // As the two arrays progress in the same way
+        // the current index of the actor is also the current index of the position
+        textBonus += 'The ' + position[index] + ' is occupied by ' + item + '\n'; // we concatenate the new result in the 2nd variable
+      });
+
+      console.log(text); // we display the first result
+      console.log(textBonus); // we display the 2nd result
+
+      console.log('----------'); // cosmetics
+
+      // Exercice 3
+      let name = ['Mario', 'Luigi', 'Peach']; // we creathe the array
+      // we must use slice the copy an array without "creating a ling between the both"
+      let copyOfName = name.slice(); // OR let copyOfName = [...name];
+      copyOfName.push('Bowser'); // we add a new value to the copy
+
+      console.log(name); // we display the original one
+      console.log(copyOfName); // we display the copy
+
+
+    </script>
+
+
+  </body>
+</html>

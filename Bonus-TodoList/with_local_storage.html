@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<style>
+.done{
+  text-decoration: line-through;
+  background: grey;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>To do list</h1>
+    <input type="text" placeholder="add" id="proposition">
+    <input type="submit" id="button">
+    <ul>
+    </ul>
+  </div>
+
+
+  <script>
+
+    let button = document.getElementById("button");
+    let ul = document.getElementsByTagName("ul")[0];
+
+    let tasks = ["feed cat","buy eggs","take shower"];
+
+    let updateList = function(){
+      ul.innerHTML = "";
+      for (var i = 0; i < tasks.length; i++) {
+        let newElement = document.createElement("li");
+        newElement.innerHTML = tasks[i];
+        ul.appendChild(newElement);
+      }
+    }
+
+    button.addEventListener("click", function(event) {
+      let proposition = document.getElementById("proposition").value;
+      tasks.push(proposition);
+      updateList();
+      saveItems();
+    })
+    // thank to bubbling/event propagation
+    ul.addEventListener("click", function(event){
+      event.target.classList.toggle("done");
+    })
+
+    let saveItems = function(){
+      let stringTask = tasks.join(",");
+      localStorage.setItem("tasks", stringTask);
+    }
+
+    let taskAsStringFromLocalStorage = localStorage.getItem("tasks");
+    tasks = taskAsStringFromLocalStorage.split(",")
+
+
+    updateList();
+
+
+  </script>
+
+</body>
+</html>

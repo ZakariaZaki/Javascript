@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>04 - Functions</title>
+  </head>
+  <body>
+
+    <script>
+
+      let substraction = function (a, b) {
+        return (a - b);
+      }
+
+      let division = function (a, b) {
+        return (a / b);
+      }
+
+      let multiplication = function (a, b) {
+        return (a * b);
+      }
+
+      let percentage = function (percent, number) {
+        // we use the function we create above to calculta the result.
+        // for the division the first parameter is the result return by the multiplication fuction
+        return pourcent + ' % de ' + number + ' = ' + division( multiplication(percent, number), 100); // = number * pourcent / 100
+      }
+
+      let speedCalculating = function (distance, time) {
+        // we use the division function to calculate the result and we concatenate it with the unites
+        return division(distance,time) + 'km/h';
+      }
+
+      let n1 = 5, n2 = 10; // we define two variable that we could use for the first 3 functions
+
+      console.log(substraction(n1,n2));
+      console.log(division(n1,n2));
+      console.log(multiplication(n1,n2));
+
+      // percent = 30 / initila number = 49
+      console.log(percentage(30,49));
+
+      // distance = 250 / time = 2
+      console.log(speedCalculating(250,2));
+
+
+
+    </script>
+
+
+  </body>
+</html>

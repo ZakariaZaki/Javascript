@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>02 - Logic</title>
+  </head>
+  <body>
+
+    <script>
+
+
+
+      let language = 'en'; // we assign a language
+      let message; // we create an empty variable to store the text
+
+      switch(language) { // we test the language variable thanks to a switch
+        case ('fr'): // if language == fr
+          message = 'Bonjour tout le monde';
+          break;
+        case ('es'): // if language == es
+          message = 'Hola, Mundo';
+          break;
+        case ('en'): // if language == en
+          message = 'Hello world';
+        break;
+        default: // if language is something else
+          message = 'We don\t know your language.';
+      }
+
+      console.log(message); // we display the message
+
+      // Exercice 2
+
+      let message2; // we create an empty variable to store the text
+      let score = 45; // we assign the score
+
+      if (score >= 90) { // if score is higher or = than 90
+        message2 = 'A';
+      } else if (score <= 50) { // if score is smaller or = than 50
+          message2 = 'C';
+      } else { // if the score is higher than 50 AND smaller than 90
+          message2 = 'B';
+      }
+
+      console.log(message2);
+
+      // Exercice 3
+      let fruit = 'apple';
+      let numberFruit = 5;
+      let message3;
+
+      if (numberFruit > 1) { // if we have more than 1 fruits
+        message3 = 'I have ' + numberFruit + ' ' + fruit + 's';
+      } else if (numberFruit == 1) { // if we have 1 fruit
+        message3 = 'I have only one ' + fruit;
+      } else { // if we don't have any fruit
+        message3 = 'I don\'t have any ' + fruit;
+      }
+
+      console.log(message3);
+
+
+
+    </script>
+
+
+  </body>
+</html>

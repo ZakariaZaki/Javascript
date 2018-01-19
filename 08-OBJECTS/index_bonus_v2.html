@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>08 - Objects</title>
+  </head>
+  <body>
+
+    <script>
+
+      class Character {
+
+        constructor(name,level,life) {
+          this.name = name;
+          this.level = level;
+          this.life = life;
+          this.weapon = {
+            name: 'sword',
+            damage: 10,
+          };
+        }
+
+        attack(to) {
+          let attackDamage = this.level * this.weapon.damage;
+          to.life -= attackDamage;
+          return this.name + ' attacks ' + to.name + ' with ' + this.weapon.name + ' and made to him ' + attackDamage + ' of damage. Now ' + to.name + ' ' + to.life + ' health points.'
+        }
+
+        receiveDamage() {
+        }
+
+      }
+
+      let opponentCharacter = new Character('Ellis',8,100);
+      let mainCharacter = new Character('Gabriel',6,150);
+      mainCharacter.weapon = {name:'axe',damage:7};
+
+      console.log(mainCharacter.attack(opponentCharacter));
+
+
+
+    </script>
+
+
+  </body>
+</html>

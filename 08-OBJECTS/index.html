@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>08 - Objects</title>
+  </head>
+  <body>
+
+    <script>
+
+      // Exercice 1
+      let character = {
+        name: 'Mira',
+        age: '28',
+        items_to_give: ['sword','arc','axe','coin','talisman','parchment'],
+
+        giveItem: function(){
+          return this.items_to_give[Math.floor(Math.random() * this.items_to_give.length)];
+        },
+
+      }
+
+      for(let key in character){ // boucle
+      	//console.log(typeof key); // display the type of key
+      	//console.log( key ) // display the key
+      	console.log( key + ' : ' + character[key] ); //display the value
+        //console.log( `${key} : ${character[key]}` ); // new method
+      }
+      console.log('**')
+      console.log(character.giveItem());
+      console.log('----------'); // cosmetics
+
+      // Exercice 2
+      let objetsToSell = [
+        {
+          title: 'Sword',
+          physic: 10,
+          magic: 1,
+          minLevel:2,
+          available: true,
+        },
+        {
+          title: 'Arc',
+          physic: 7,
+          magic: 2,
+          minLevel:4,
+          available: true,
+        },
+        {
+          title: 'Axe',
+          physic: 10,
+          magic: 0,
+          minLevel:5,
+          available: true,
+        },
+        {
+          title: 'Talisman',
+          physic: 1,
+          magic: 10,
+          minLevel:15,
+          available: true,
+        },
+        {
+          title: 'Wand',
+          physic: 1,
+          magic: 15,
+          minLevel:20,
+          available: false,
+        },
+        {
+          title: 'Hobbit',
+          physic: 5,
+          magic: 1,
+          minLevel:6,
+          available: false,
+        },
+      ] // end array including objects
+
+      let displayAllObjects = function () {
+        objetsToSell.forEach(function (item) {
+          console.log(item.title);
+        });
+      }
+
+      let displayAllAvailableObjects = function () {
+        objetsToSell.forEach(function (item) {
+          if(item.available) {
+            console.log(item.title);
+          }
+        });
+      }
+
+      let displayAllAvailableHigherThanALevel = function (level = 10) {
+        objetsToSell.forEach(function (item) {
+          if(item.minLevel > level) {
+            console.log(item.title);
+          }
+        });
+      }
+
+      displayAllObjects();
+      console.log('**'); // cosmetics
+      displayAllAvailableObjects();
+      console.log('**'); // cosmetics
+      displayAllAvailableHigherThanALevel(10);
+
+      console.log('----------'); // cosmetics
+
+      // Exercice 4
+      let mainCharacter = {
+        name: 'Laurent',
+        level: 12,
+        life: 180,
+        weapon : {
+          name: 'wand',
+          damage: 5,
+        },
+        attack: function() {
+          return this.name + ' attacks with the weapon \'' + this.weapon.name + '\'. He made ' + (this.weapon.damage * this.level) + ' points of damage.';
+        }
+      }
+
+      console.log(mainCharacter.attack());
+
+      console.log('----------'); // cosmetics
+
+      // Bonus
+      let character2 = {
+        init: function (name, level, life) { // fonction d'initialisation
+          this.name = name;
+          this.level = level;
+          this.life = life;
+        },
+        weapon: {
+          name: 'sword',
+          damage: 10,
+        },
+        attack: function(to) {
+          let attackDamage = this.level * this.weapon.damage;
+          to.life -= attackDamage;
+          return this.name + ' attacks ' + to.name + ' with ' + this.weapon.name + ' and made to him ' + attackDamage + 'of damage. Now ' + to.name + ' ' + to.life + ' health points.'
+        },
+        receiveDamage: function(){
+
+        },
+      }
+
+      let opponentCharacter = Object.create(character2);
+      opponentCharacter.init('Ellis',8,100);
+
+      let mainCharacter2 = Object.create(character2);
+      mainCharacter2.init('Gabriel',6,150);
+
+      console.log(mainCharacter2.attack(opponentCharacter))
+      //console.log(opponentCharacter);
+
+      //console.log(opponentCharacter);
+
+
+
+    </script>
+
+
+  </body>
+</html>
